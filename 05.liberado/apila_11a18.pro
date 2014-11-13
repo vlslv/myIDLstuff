@@ -1,5 +1,6 @@
 ;PRO apila_11a18
-; recuperar los archivos rs1yyyymmdd.hh00 para concatenarlo y crear modelo de t_brillo
+: dummy rutine just for cconcatenate rs1yymmdd.hh00 files
+; recupera los archivos rs1yyyymmdd.hh00 para concatenarlos y crear modelo de t_antena
 ; procedimiento que solo funciona con dias que tengan datos entre 1100 hasta 1800 horas
 
 dato=DIALOG_PICKFILE(path='/network/adhara/fvalle/SST/Y2012/M*/D*/intg/',/read)
