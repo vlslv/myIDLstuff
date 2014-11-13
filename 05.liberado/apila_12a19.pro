@@ -2,7 +2,7 @@
 ; recuperar los archivos rs1yyyymmdd.hh00 para concatenarlo y crear modelo de t_brillo
 ; procedimiento que solo funciona con dias que tengan datos entre 1200 hasta 1900 horas
 
-dato=DIALOG_PICKFILE(path='/network/adhara/fvalle/SST/Y2012/M*/D*/intg/',/read)
+dato=DIALOG_PICKFILE(path='/adhara/fvalle/SST/Y2013/M05/D13/intg/',/read)
 ;file_uncompress,datag,datad ; linea para cuando el archivo este comprimido
 
 read_sst,b12,dato,recr=1000000,/close

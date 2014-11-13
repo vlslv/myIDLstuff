@@ -1,11 +1,11 @@
-;PRO apila_12a21
+;PRO apila_11a18
 ; recuperar los archivos rs1yyyymmdd.hh00 para concatenarlo y crear modelo de t_brillo
-; procedimiento que solo funciona con dias que tengan datos entre 1200 hasta 2100 horas
+; procedimiento que solo funciona con dias que tengan datos entre 1100 hasta 1800 horas
 
-dato=DIALOG_PICKFILE(path='/adhara/fvalle/SST/Y2012/M*/D*/intg/',/read)
+dato=DIALOG_PICKFILE(path='/network/adhara/fvalle/SST/Y2012/M*/D*/intg/',/read)
 ;file_uncompress,datag,datad ; linea para cuando el archivo este comprimido
 
-read_sst,b12,dato,recr=1000000,/close
+read_sst,b11,dato,recr=1000000,/close
 
 split_fpath_fname=strsplit(dato,'intg/',/extract,/regex)
 ruta_arch=split_fpath_fname[0]
@@ -14,6 +14,10 @@ split_name_exte=strsplit(nombre_arch,'.',/extract)
 nombre=split_name_exte[0]
 cd,ruta_arch
 cd,'intg'
+
+dato=nombre+'.1200'
+
+read_sst,b12,dato,recr=1000000,/close
 
 dato=nombre+'.1300'
 
@@ -39,19 +43,7 @@ dato=nombre+'.1800'
 
 read_sst,b18,dato,recr=1000000,/close
 
-dato=nombre+'.1900'
-
-read_sst,b19,dato,recr=1000000,/close
-
-dato=nombre+'.2000'
-
-read_sst,b20,dato,recr=1000000,/close
-
-dato=nombre+'.2100'
-
-read_sst,b21,dato,recr=1000000,/close
-
-b=[b12,b13,b14,b15,b16,b17,b18,b19,b20,b21]
+b=[b11,b12,b13,b14,b15,b16,b17,b18]
 
 window,01
 !P.MULTI = [0, 1, 6]
@@ -66,5 +58,5 @@ t_plot,b.time,b.adcval[3],xstyle=1,ystyle=1,psym=0
 t_plot,b.time,b.adcval[4],xstyle=1,ystyle=1,psym=0
 ;window,15
 t_plot,b.time,b.adcval[5],xstyle=1,ystyle=1,psym=0
-                      
+             
 end
