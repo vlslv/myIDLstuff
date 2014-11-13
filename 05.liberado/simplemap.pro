@@ -1,14 +1,15 @@
 ;PRO simplemap
 
 ;Rutina para hacer mapas utilizando archivos rs1yymmdd.hh00 
-;toma los archivos entre las 15hh y las 18hh para cosntruir
+;toma los archivos entre las 15hh y las 18hh para construir
 ;el mapa. Llama las rutinas auxiliares del acervo del SST: 
+
 ;JULDAY.
 ;SST_SUNPOS.
 ;SST_CT2LST.
 ;SST2AZEL.
 
-
+;Utiliza el archivo de posicion de haces bpos.save 
 
 
 restore,'~/SST/rutinas/bpos.save'
